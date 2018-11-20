@@ -1,0 +1,41 @@
+<div class="lesson-new-wrapper" >
+  <div class="container">
+    <div class="row">
+      <% if current_user && current_user.level == "pro" %>
+        <%= render :partial => "pronav" %>
+      <% elsif current_user && current_user.level == "ama" %>
+        <%= render :partial => "navama" %>
+      <% else %>
+        <%= render :partial => "navnone" %>
+      <% end %>
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="text-center">Add Lesson</h1>
+        <%= form_for @lesson do |f| %>
+          <div class="form-group">
+            <%= f.label :image %>
+            <%= f.file_field :image%>
+          </div>
+          <div class="form-group">
+            <%= f.label :title %>
+            <%= f.text_area :title, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <label for=“description” class="text-black">＜レッスン内容・開催地・集合時間＞</label>
+            <%= f.text_area :description, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <label for=“price” class="text-black">レッスン料</label>
+            <%= f.text_area :price, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <label for=“headcount” class="text-black">対象人数</label>
+            <%= f.text_area :headcount, class: 'form-control' %>
+          </div>
+
+          <%= f.submit '投稿', class: 'btn btn-black btn-block' %>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
+    <div class="container">
+      <%= link_to lessons_path do %>
+        <span><%= image_tag 'icons/logo.jpg', class: 'navbar-brand' %></span>
+      <% end %>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+        <% else %>
+          <li>
+            <%= link_to new_user_registration_path do %>
+              <%= image_tag 'icons/register.png' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_session_path do %>
+              <%= image_tag 'icons/login.png' %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>

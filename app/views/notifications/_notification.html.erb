@@ -1,0 +1,7 @@
+<li>
+  <% if notification.notified_by.present? %>
+    <%= link_to "#{notification.notified_by.name}さんがあなたに#{notification.notified_type}をしました", link_through_path(notification) %>
+  <% else %>
+    <%= link_to "退会済みのユーザーさんがあなたに#{notification.notified_type}をしました", link_through_path(notification) %>
+  <% end %>
+ </li>

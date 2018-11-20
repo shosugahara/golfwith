@@ -1,0 +1,67 @@
+<div class="users-new-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4 users-new-container">
+        <h1 class="text-center text-white">Sign in</h1>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+          <div class="form-group">
+            <%= f.label :level, class: 'text-white' %>
+            <%= f.select  :level,{"アマチュア" => "ama", "レッスンプロ" => "pro"}, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :name, class: 'text-white' %><br />
+            <%= f.text_field :name, class: 'form-control', autofocus: true %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email, class: 'text-white' %><br />
+            <%= f.email_field :email, class: 'form-control', autocomplete: "email" %>
+          </div>
+          <div class="body-color"><lavel id='license-num'>ライセンスナンバー(＊レッスンプロの方)</lavel></div>
+          <!-- <input type='text' class='form-control' name='license_num' required></input> -->
+          <%= f.text_field :license_num, class: "form-control" %>
+          <div class="body-color"><lavel id='license-image'>ライセンスイメージ(＊レッスンプロの方)</lavel></div>
+          <!-- <input type='file' name='license_image' required></input> -->
+          <div class="body-color"><%= f.file_field :license_image %></div>
+
+          <!-- <script> -->
+
+          <!-- // $(function(){
+          //     $("select[name='user[level]']").change(function(){
+          //       if ($("select[name='user[level]']").val() == "pro"){
+          //         $("#user_name").after("<div><lavel id='license-num'>ライセンスナンバー</lavel></div><input type='text' class='form-control' name='license_num' required></input>");
+          //         $("input[name='license_num']").after("<lavel id='license-image'>ライセンスイメージ</lavel><input type='file' name='license_image' required></input>");
+          //       }else{
+          //         $("input[name='license_num']").remove();
+          //         $("#license-num").remove();
+          //         $("input[name='license_image']").remove();
+          //         $("#license-image").remove();
+          //       }
+          //     });
+          //   }); -->
+          <!-- </script> -->
+
+          <div class="form-group">
+            <%= f.label :password, class: 'text-white' %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password_confirmation, class: 'text-white' %><br />
+            <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "off" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Sign up" %>
+          </div>
+        <% end %>
+
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>

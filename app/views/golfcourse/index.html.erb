@@ -1,0 +1,30 @@
+<div class="lesson-index-wrapper">
+  <div class="container">
+    <div class="row">
+      <% if current_user && current_user.level == "pro" %>
+        <%= render :partial => "pronav" %>
+      <% elsif current_user && current_user.level == "ama" %>
+        <%= render :partial => "navama" %>
+      <% end %>
+      <h1 class="golfcourse">提携ゴルフコース一覧</h1>
+      <div class="col-md-4">
+
+        <a href= https://www.princehotels.co.jp/golf/seta/><img src="https://i.gimg.jp/resource/reserve/golfcourseimage/612403-1.jpg" class="golfcourse-image">
+        瀬田ゴルフコース</a>
+        <p>住所：〒520-2125　滋賀県大津市瀬田橋本町12</p>
+	    </div>
+	    <div class="col-sm-4">
+
+        <a href=https://www.pacificgolf.co.jp/chiyoda/><img src="https://www.pacificgolf.co.jp/chiyoda/assets/img/gallery/photo_ph13.jpg" class="golfcourse-image">
+        千代田カントリークラブ</a>
+        <p>住所：〒315-0065 茨城県かすみがうら市上佐谷877-6</p>
+	    </div>
+	     <div class="col-sm-4">
+
+		       <a href=https://www.pacificgolf.co.jp/katsura/><img src="https://www.pacificgolf.co.jp/katsura/assets/img/gallery/vr_ph01.jpg" class="golfcourse-image">
+           桂ゴルフコース</a>
+           <p>住所：〒059-1365 北海道苫小牧市植苗577-1</p>
+	     </div>
+     </div>
+   </div>
+ </div>

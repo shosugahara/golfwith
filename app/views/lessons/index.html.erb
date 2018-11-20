@@ -1,0 +1,55 @@
+<header>
+  <div class="index-main">
+    <h2 class="text-white">GOLFwith is a service that you can have a lesson with the Pro.</h2>
+    <h2 class="text-white">レッスンプロに気軽に依頼ができるマッチングサービス</h2>
+    <h4 class="text-white">~レッスン料をシェアできてお得＆プロはプレイしないので遅延なし！~</h4>
+  </div>
+</header>
+<font color="#ff0000"><h5>※ベータ版です。個人の趣味の範囲で制作したものなので、何か問題が起こっても責任は負いかねます。ご了承の上で閲覧ください（随時、修正・追加中です）</h5></font>
+<div class="lesson-index-wrapper">
+  <div class="container">
+    <div class="row">
+      <% if user_signed_in? && current_user.level == "pro"%>
+        <%= render :partial => "pronav" %>
+      <% elsif user_signed_in? && current_user.level == "ama" %>
+        <%= render :partial => "navama" %>
+      <% else %>
+        <%= render :partial => "navnone" %>
+      <% end %>
+      <% @lessons.each do |lesson| %>
+        <div class="col-md-4">
+          <div class="lesson-index-single">
+            <%= link_to lesson_path(lesson.id) do %>
+            <%= image_tag lesson.image.url %>
+            <h4 class="lesson-text">
+              <%= lesson.title %>
+            <% end %>
+            </h4>
+            <h4 class="lesson-author">
+              <%= link_to user_path(lesson.user.id) do %>
+                <%= lesson.user.name %>
+              <% end %>
+              <% if current_user %>
+                <% if current_user.lessons.include?(lesson) %>
+                  <%= link_to '[Edit]', edit_lesson_path(lesson), class: 'command' %>
+                  <%= link_to '[Delete]',
+                  lesson_path(lesson),
+                  method: :delete,
+                  class: 'command' ,
+                  data: { confirm: 'sure?' } %>
+                <% end %>
+              <% end %>
+            </h4>
+            <h4 class="lesson-text">
+              <%= number_to_currency(lesson.price, :unit => "￥", :precision => 0) %>
+            </h4>
+            <h4 class="lesson-text">
+              <%= number_to_human(lesson.headcount, :precision => 1) %>
+              <span>名</span>
+            </h4>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

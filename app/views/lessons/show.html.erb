@@ -1,0 +1,64 @@
+<div class="lesson-index-wrapper">
+  <div class="container">
+    <div class="row">
+      <% if current_user && current_user.level == "pro" %>
+        <%= render :partial => "pronav" %>
+      <% elsif current_user && current_user.level == "ama" %>
+        <%= render :partial => "navama" %>
+      <% end %>
+        <div class="col-md-8 col-md-offset-2">
+          <div class="lesson-index-single">
+            <%= image_tag @lesson.image.url %>
+            <h4 class="lesson-text">
+              <%= @lesson.title %>
+            </h4>
+            <h4 class="lesson-author">
+              <%= @lesson.user.name %>
+              <% if current_user %>
+                <% if current_user.lessons.include?(@lesson) %>
+                  <%= link_to '[Edit]', edit_lesson_path(@lesson), class: 'command' %>
+                  <%= link_to '[Delete]',
+                  lesson_path(@lesson),
+                  method: :delete,
+                  class: 'command' ,
+                  data: { confirm: 'sure?' } %>
+                <% end %>
+              <% end %>
+            </h4>
+            <h4 class="lesson-text">
+              <%= number_to_currency(@lesson.price, :unit => "￥", :precision => 0) %>
+            </h4>
+            <h4 class="lesson-text">
+              <%= number_to_human(@lesson.headcount, :precision => 1) %>
+              <span>名</span>
+            </h4>
+            <div class="brk-world">
+            <p class="lesson-text">
+              <span>＜レッスン内容・開催地・集合時間＞</span>
+              </p>
+              <p class="lesson-text"><%= simple_format(@lesson.description) %></p>
+           </div>
+           <%= link_to new_comment_path(lesson_id: @lesson.id) do %>
+             <%= image_tag 'icons/comment.png', class: 'lesson-index-icon' %>
+           <% end %>
+           <h5 class="comment-text">＜コメント一覧（質問 etc..）＞</h5>
+           <% @lesson.comments.each do |comment| %>
+           <p class="comment-body"><%= comment.body %></p>
+           <%= link_to new_comment_path(user_id: comment.user_id,lesson_id: @lesson.id) do %>
+             <%#= image_tag 'icons/comment.png', class: 'lesson-index-icon' %><p>返信する</p>
+           <% end %>
+
+           <p><%= link_to '[Delete]',
+           comment_path(comment),
+           method: :delete,
+           class: 'command' ,
+           data: { confirm: 'sure?' } %></p>
+           <% end %>
+           <form action="/pay" method="post">
+             <script src="https://checkout.pay.jp/" class="payjp-button" data-key="pk_test_685964e4777f152d31e8d429"></script>
+           </form>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

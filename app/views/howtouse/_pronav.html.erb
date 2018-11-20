@@ -1,0 +1,53 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
+    <div class="container">
+      <%= link_to lessons_path do %>
+        <span><%= image_tag 'icons/logo.jpg', class: 'navbar-brand' %></span>
+      <% end %>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+        <li>
+          <%= render 'notifications/notification_dropdown' %>
+        </li>
+        <li class="search-nav">
+            <%= form_tag(lessons_path, method: :get) do %>
+            <div class="input-group">
+              <%= search_field_tag "q", params[:q], placeholder: "キーワード検索", class: "form-control"%>
+              <span class="input-group-btn">
+              <%= submit_tag "検索", class: "btn btn-primary" %>
+              </span>
+            </div>
+        <% end %>
+        </li>
+          <li>
+            <%= link_to user_path(current_user.id) do %>
+              <%= image_tag 'icons/mypage.png' %>
+              <p class="icon-name">マイページ</p>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_lesson_path do %>
+              <%= image_tag 'icons/createlesson.png' %>
+              <p class="icon-name">レッスン作成</p>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete  do %>
+              <%= image_tag 'icons/logout.png' %>
+              <p class="icon-name">ログアウト</p>
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to new_user_registration_path do %>
+              <%= image_tag 'icons/register.png' %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_session_path do %>
+              <%= image_tag 'icons/login.png' %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>

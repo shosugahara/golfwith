@@ -1,0 +1,73 @@
+<header class="masthead">
+  <div>
+    <% if current_user && current_user.level == "pro" %>
+      <%= render :partial => "pronav" %>
+    <% elsif current_user && current_user.level == "ama" %>
+      <%= render :partial => "navama" %>
+    <% else %>
+    <%= render :partial => "navnone" %>
+    <% end %>
+    <div class="intro-text">
+      <div class="intro-heading">
+        <div>GOLFwith</div>
+        <div>「もっとラウンドレッスンを身近に」</div>
+        <div>気軽に参加ができて、プロから指導を受けれる</div>
+      </div>
+      <a href="#services" class="square_btn">GOLFwithとは</a>
+      <a href="/lessons" class="square_btn">レッスンを見る</a>
+      <h4 class="text-white">会員登録不要でレッスンを見ることができます。<br>レッスン作成・コメント・依頼を行うためにはプロ＆アマ共に新規登録（無料・1分程度）が必要です。</h4>
+    </div>
+  </div>
+</header>
+
+
+<!-- GOLFwithとは -->
+<section id="services">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">GOLFwithとは</h2>
+        <h3 class="section-subheading text-muted">レッスンプロが企画したレッスンに気軽に参加ができるマッチングサービス</h3>
+        <h4 class="section-subheading text-muted">GOLFwith is a service that you can have a lesson with the Pro.</h4>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-stack-2x text-primary"></i>
+          <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">特徴</h4>
+        <p class="text-muted text-muted-des"><i class="fa fa-check fa-fw"></i>多くのゴルフ場がレッスンプロの人数や料金まで課金するので、なかなかやりにくいのが現状。<br><i class="fa fa-check fa-fw"></i>例えば4人1組で回っている時に1人のレッスンプロが付けば、4人同時にレッスンを受けることができるのでレッスン料をシェアできてお得です。<br><i class="fa fa-check fa-fw">回る時間もレッスンプロはプレイしないので遅延しない。</i><br></p>
+      </div>
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-stack-2x text-primary"></i>
+          <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">ミッション</h4>
+        <p class="text-muted text-muted-des"><i class="fa fa-check fa-fw"></i>アマチュアの方がもっと気軽にラウンドレッスンに参加でき、スキルアップができること<br><i class="fa fa-check fa-fw"></i>敷居が高いと思われがちなラウンドレッスンを身近に感じてもらうこと。そして、何よりもゴルフを楽しむ機会を提供すること。</p>
+      </div>
+      <div class="col-md-4">
+        <span class="fa-stack fa-4x">
+          <i class="fa fa-circle fa-stack-2x text-primary"></i>
+          <i class="fa fa-history fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">開発経緯</h4>
+        <p class="text-muted text-muted-des"><i class="fa fa-check fa-fw"></i>ゴルフに少し興味が湧き、ゴルフ好きの友人達と話す内にラウンドレッスンが一番上達すると知り調べて見た結果、少し敷居が高い感じた。そこで<br><i class="fa fa-check fa-fw">「レッスンプロとアマチュアゴルファーをマッチングしてラウンドレッスンするサービスはどうだろう？」と考え、作成しました。</i></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light" id="portfolio">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-uppercase">レッスンを見てみる</h2>
+        <a href="/lessons" class="square_btn">レッスンを見る</a>
+        <h3 class="section-subheading text-muted">会員登録不要でレッスンを見ることができます。<br>レッスン作成・コメント・依頼を行うためにはプロ＆アマ共に新規登録（無料・1分程度）が必要です。</h3>
+        <a href="howtouse/index" class="square_btn">How to Use?</a>
+      </div>
+    </div>
+  </div>

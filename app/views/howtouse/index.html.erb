@@ -1,0 +1,35 @@
+<div class="lesson-index-wrapper">
+  <div class="container">
+    <div class="row">
+      <% if current_user && current_user.level == "pro" %>
+        <%= render :partial => "pronav" %>
+      <% elsif current_user && current_user.level == "ama" %>
+        <%= render :partial => "navama" %>
+      <% end %>
+        <h1 class="text-center">How to Use</h1>
+          <div class="box">
+            <span class="box-title">レッスンプロの皆様</span>
+            <ul>
+              <li><font size="4">まず会員登録（Levelは”レッスンプロ”を選択）して頂き、ログイン後にプロフィールを充実させましょう。(マイページアイコン)</font></li>
+              <li><font size="4">プロの方はレッスン作成アイコンよりレッスン内容を作成・投稿して頂きアマチュアの方を募集しましょう！</font></li>
+              <li><font size="4">レッスンページにはコメント欄が表示されますので、アマチュアの方からの質問等があった場合ページ上部に通知が来ますので確認しましょう。</font></li>
+              <li><font size="4">募集人数が揃いましたら、コメント欄にて募集を締め切って頂き、当日は指定の日時と場所に向かってください。</font></li>
+              <li><font size="4">当日、現場にて落ち合われましたら確認の上ラウンドレッスンを開始してください。</font></li>
+            </ul>
+          </div>
+          <div class="box">
+            <span class="box-title">アマチュアの皆様</span>
+            <ul>
+              <li><font size="4">まず会員登録を済ませて頂き、ログイン後にプロフィールを充実させましょう。(マイページアイコン)</font></li>
+              <li><font size="4">気になるレッスンを探して詳細を確認しましょう！</font></li>
+              <li><font size="4">レッスン詳細を確認した上でわからないことがあったらコメント蘭にてレッスンプロに質問してみましょう！</font></li>
+              <li><font size="4">あなたの質問にレッスンプロから返信があるとページ上部に通知されますので確認してみましょう！</font></li>
+              <li><font size="4">最後に料金等をもう一度確認して、レッスンを受けたい場合は予約（事前決済）ボタンをクリックして確定されるのを待ちましょう。</font></li>
+              <li><font size="4">当日は指定された時間と場所に向かってプロと合流してラウンドレッスン開始です！楽しみましょう！</font></li>
+            </ul>
+          </div>
+          <div class="text-center"><%= link_to '[戻る]', root_path %></div>
+	     </div>
+     </div>
+   </div>
+ </div>

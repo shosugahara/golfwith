@@ -1,0 +1,27 @@
+<div class="user-show">
+  <div class="container">
+    <% if current_user && current_user.level == "pro" %>
+      <%= render :partial => "pronav" %>
+    <% elsif current_user && current_user.level == "ama" %>
+      <%= render :partial => "navama" %>
+    <% end %>
+    <div class="user">
+      <% if @user.image_name.url.nil? %>
+      <%= image_tag "icons/default_user.jpg" %>
+        <% else %>
+          <%= image_tag @user.image_name.url %>
+      <% end %>
+      <h2><%= @user.name %></h2>
+
+      <div class="box">
+        <span class="box-title">自己紹介・経歴等</span>
+        <p><%= simple_format(@user.biography) %></p>
+      </div>
+      <% if current_user == @user %>
+
+        <%= link_to '[編集]', edit_user_registration_path(@user), class: 'command' %>
+
+      <% end %>
+    </div>
+  </div>
+</div>
