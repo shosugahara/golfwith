@@ -1,24 +1,17 @@
-# README
+デプロイしていますので、ご参考までにご覧いただけると幸いです。サイトリンク（http://golfwith.herokuapp.com/）
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+GOLFwithとは…
+『レッスンプロが企画したレッスンに気軽に参加ができるマッチングサービス』
 
-Things you may want to cover:
+[特徴]
+多くのゴルフ場がレッスンプロの人数や料金まで課金するので、なかなかやりにくいのが現状。
+例えば4人1組で回っている時に1人のレッスンプロが付けば、4人同時にレッスンを受けることができるのでレッスン料をシェアできてお得です。
+回る時間もレッスンプロはプレイしないので遅延しない。
 
-* Ruby version
+[ミッション]
+アマチュアの方がもっと気軽にラウンドレッスンに参加でき、スキルアップができることを可能にする。
+敷居が高いと思われがちなラウンドレッスンを身近に感じてもらうこと。そして、何よりもゴルフを楽しむ機会を提供すること。
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[開発経緯]
+ゴルフに少し興味が湧き、ゴルフ好きの友人達と話す内にラウンドレッスンが一番上達すると知り調べて見た結果、少し敷居が高い感じたので
+「レッスンプロとアマチュアゴルファーをマッチングしてラウンドレッスンするサービスはどうだろう？」と考え、作成しました。
